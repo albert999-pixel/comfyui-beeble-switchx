@@ -33,10 +33,9 @@ After updating the files, restart ComfyUI manually.
 ## How to install
 
 1. Clone this repository into `ComfyUI/custom_nodes/`.
-2. Copy `.env.example` to `.env`.
-3. Put your Beeble API key into `.env`.
-4. Restart ComfyUI.
-5. Search for `Beeble` in the node list.
+2. Configure `BEEBLE_API_KEY`.
+3. Restart ComfyUI.
+4. Search for `Beeble` in the node list.
 
 ## Update
 
@@ -52,14 +51,6 @@ git pull
 ```bash
 cd /path/to/ComfyUI/custom_nodes
 git clone https://github.com/albert999-pixel/comfyui-beeble-switchx.git
-cd comfyui-beeble-switchx
-cp .env.example .env
-```
-
-Then edit `.env`:
-
-```env
-BEEBLE_API_KEY=your_real_beeble_api_key
 ```
 
 After that:
@@ -70,21 +61,44 @@ After that:
 4. Add prompt and other inputs.
 5. Queue the workflow.
 
-## API key
+## API key setup
 
-The main supported way is a local `.env` file in the root of this custom node:
+### Recommended for ComfyUI Desktop
+
+Open ComfyUI Desktop:
+
+```text
+Instance -> Startup Args -> Environment Variables -> Add Variable
+```
+
+Add:
+
+```env
+BEEBLE_API_KEY=your_api_key_here
+```
+
+Then restart the ComfyUI instance.
+
+### Alternative
+
+Create a `.env` file in this custom node folder.
+
+You can copy the example file:
+
+```bash
+cd /path/to/ComfyUI/custom_nodes/comfyui-beeble-switchx
+cp .env.example .env
+```
+
+Then put your key into `.env`:
 
 ```env
 BEEBLE_API_KEY=your_beeble_api_key_here
 ```
 
-There is also an example file:
+### Fallback
 
-```text
-.env.example
-```
-
-Fallback is the environment variable:
+The code also accepts the regular environment variable:
 
 ```text
 BEEBLE_API_KEY
