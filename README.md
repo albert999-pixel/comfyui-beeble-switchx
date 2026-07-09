@@ -17,7 +17,7 @@ Clone the repository into your ComfyUI custom nodes folder:
 
 ```bash
 cd /path/to/ComfyUI/custom_nodes
-git clone https://github.com/<your-name>/comfyui-beeble-switchx.git
+git clone https://github.com/albert999-pixel/comfyui-beeble-switchx.git
 ```
 
 Expected path after cloning:
@@ -30,6 +30,14 @@ No extra Python dependencies are required beyond the ComfyUI environment you are
 
 After updating the files, restart ComfyUI manually.
 
+## How to install
+
+1. Clone this repository into `ComfyUI/custom_nodes/`.
+2. Copy `.env.example` to `.env`.
+3. Put your Beeble API key into `.env`.
+4. Restart ComfyUI.
+5. Search for `Beeble` in the node list.
+
 ## Update
 
 To update the node later:
@@ -38,6 +46,29 @@ To update the node later:
 cd /path/to/ComfyUI/custom_nodes/comfyui-beeble-switchx
 git pull
 ```
+
+## Quick start
+
+```bash
+cd /path/to/ComfyUI/custom_nodes
+git clone https://github.com/albert999-pixel/comfyui-beeble-switchx.git
+cd comfyui-beeble-switchx
+cp .env.example .env
+```
+
+Then edit `.env`:
+
+```env
+BEEBLE_API_KEY=your_real_beeble_api_key
+```
+
+After that:
+
+1. Restart ComfyUI.
+2. Add `Beeble SwitchX Image` or `Beeble SwitchX Video`.
+3. Connect your source image or video.
+4. Add prompt and other inputs.
+5. Queue the workflow.
 
 ## API key
 
@@ -186,6 +217,13 @@ Current example:
 
 - `12_switchx_image_video_demo.json` - combined demo workflow with both image and video branches
 
+To load a saved workflow in ComfyUI:
+
+1. Open ComfyUI.
+2. Use the workflow open/import action in the UI.
+3. Select a file from `test_workflows/`.
+4. Replace local media inputs with your own files if needed.
+
 ## Logging
 
 The nodes log short runtime statuses such as:
@@ -204,6 +242,13 @@ Production nodes keep logs short and readable. Test nodes may log more debug inf
 - no dynamic UI yet
 - test workflows are examples, not full documentation
 - media compatibility is mostly validated by Beeble API responses for now
+
+## Troubleshooting
+
+- If the nodes do not appear, restart ComfyUI and search for `Beeble`.
+- If you see an API key error, check that `.env` exists and contains `BEEBLE_API_KEY=...`.
+- If a temporary network or SSL error happens, the node retries automatically a few times before failing.
+- If `select` or `custom` mode is used, make sure the required mask or alpha input is actually connected and not bypassed.
 
 ## Quick checks
 
