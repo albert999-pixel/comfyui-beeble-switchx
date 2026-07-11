@@ -1,0 +1,18 @@
+[project]
+name = "comfyui-beeble-switchx"
+version = "0.1.0"
+description = "Custom ComfyUI nodes for Beeble SwitchX image and video workflows"
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[project.urls]
+Repository = "https://github.com/albert999-pixel/comfyui-beeble-switchx"
+Documentation = "https://github.com/albert999-pixel/comfyui-beeble-switchx"
+"Bug Tracker" = "https://github.com/albert999-pixel/comfyui-beeble-switchx/issues"
+
+[tool.comfy]
+PublisherId = "albert999-pixel"
+DisplayName = "Comfyui Beeble SwitchX"
